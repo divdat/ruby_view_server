@@ -14,6 +14,22 @@
       <p>
       <%= link_to('This is a link to Me', 'me.html') %>
       <p>
+      <form method='post' action="<%= @request.path %>">
+        First name: <input type="text" name="first_name" placeholder='first name'/><br />
+        <input type="submit" value="Submit" />
+      </form>
+      <% if @request.query['first_name'] && !@request.query['first_name'].empty? %>
+        Hello there <%= @request.query['first_name'] %>
+      <% else %>
+        Enter thy name
+      <% end %>
+
+      <p>
+      <form>
+        <input type="radio" name="sex" value="male">Male<br>
+        <input type="radio" name="sex" value="female">Female
+      </form>
+      </p>
     </p>
     <hr />
     <div>
@@ -27,3 +43,4 @@
     </div>
   </body>
 </html>
+
